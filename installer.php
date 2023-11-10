@@ -26,7 +26,7 @@ error_reporting(0);
       file_get_contents("https://api.telegram.org/bot$token/sendmessage?chat_id=$chat_id&&text=\"✅ The wizwiz bot has been successfully installed! @wizwizch , @PhoenixPars\"");
     $CreateDB = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/createDB.php");
     file_put_contents("wizwiz_timebot/createDB.php",$CreateDB);
-    echo "<a href=\"https://$domain/wizwizxui-timebot/createDB.php\">install DB and end instaltion</a>";
+    echo "<a href=\"https://$domain/wizwiz_timebot/createDB.php\">install DB and end instaltion</a>";
     } else {
     mkdir("wizwiz_timebot");
     mkdir("wizwiz".$random);
