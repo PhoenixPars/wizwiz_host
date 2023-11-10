@@ -33,8 +33,37 @@ $action = $_GET['action'];
     file_put_contents("wizwiz_timebot/settings/values.php",$values_php);
     $warnusers_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/settings/warnusers.php");
     file_put_contents("wizwiz_timebot/settings/warnusers.php",$warnusers_php);
-    //$warnusers_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/settings/warnusers.php");
-    //file_put_contents("wizwiz_timebot/settings/warnusers.php",$warnusers_php);
+    $phpqrcode_zip = file_get_contents("https://github.com/PhoenixPars/wizwiz_host/raw/main/phpqrcode.zip");
+    file_put_contents("wizwiz_timebot/phpqrcode.zip",$phpqrcode_zip);
+    $zip = new ZipArchive;
+if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
+    $zip->extractTo('wizwiz_timebot/phpqrcode/');
+    $zip->close();
+    echo 'ok';
+    mkdir("wizwiz_timebot/pay");
+    $TCTusorNL_png = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/pay/TCTusorNL.png");
+    file_put_contents("wizwiz_timebot/pay/TCTusorNL.png",$TCTusorNL_png);
+    $x7QSQv8qk_png = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/pay/x7QSQv8qk.png");
+    file_put_contents("wizwiz_timebot/pay/x7QSQv8qk.php",$x7QSQv8qk_png);
+    $back_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/pay/back.php");
+    file_put_contents("wizwiz_timebot/pay/back.php",$back_php);
+    $index_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/pay/index.php");
+    file_put_contents("wizwiz_timebot/pay/index.php",$index_php);
+    mkdir("wizwiz_timebot/assets");
+    $a20bb620751bbea45_css = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/20bb620751bbea45.css");
+    file_put_contents("wizwiz_timebot/assets/20bb620751bbea45.css",$a20bb620751bbea45_css);
+    $IRANSans_ttf = file_get_contents("https://github.com/PhoenixPars/wizwizxui-timebot/raw/main/assets/IRANSans.ttf");
+    file_put_contents("wizwiz_timebot/assets/IRANSans.ttf",$IRANSans_ttf);
+    $logo_png = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/logo.png");
+    file_put_contents("wizwiz_timebot/assets/logo.png",$logo_png);
+    $style_css = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/style.css");
+    file_put_contents("wizwiz_timebot/assets/style.css",$style_css);
+    $webconf_css = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/webconf.css");
+    file_put_contents("wizwiz_timebot/assets/webconf.css",$webconf_css);
+} else {
+    echo 'failed';
+    echo 'pls reinstall';
+}
   } elseif ($action == "update") {
 
   } else {
