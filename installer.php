@@ -87,7 +87,7 @@ if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
     $webconf_css = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/webconf.css");
     file_put_contents("wizwiz_timebot/assets/webconf.css",$webconf_css);
     echo "<form mathod=\"post\">enter your domain :<input type=\"text\" name=\"domain\"><br>enter your token : <input type=\"text\" name=\"token\"><br>enter your chat_id : <input type=\"number\" name=\"chat_id\"><br>enter DBname : <input type=\"text\" name=\"dbname\"><br>enter dbusername :<input type=\"text\" name=\"dbusername\"><br>enter dbpassword:<input type=\"password\" name=\"dbpassword\"><br><input type=\"submit\" name=\"submit\"></form>";}
-} else {
+ else {
     echo 'failed';
     echo 'pls reinstall';
 }
