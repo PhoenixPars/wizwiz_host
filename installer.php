@@ -2,6 +2,29 @@
 $action = $_GET['action'];
   if ($action == "install") {
     $random = rand(000000000,999999999);
+    if (isset($_POST['domain']) && !empty($_POST['domain']) && isset($_POST['token']) && !empty($_POST['token']) && isset($_POST['chat_id']) && !empty($_POST['chat_id'])) {
+      $domain = $_POST['domain'];
+      $token = $_POST['token'];
+      $chat_id = $_POST['chat_id'];
+      $base_code = "
+<?php
+error_reporting(0);
+\$botToken = \"$token\";
+\$dbUserName = \"adminOla\";
+\$dbPassword = \"kfrjndsjsenfl\";
+\$dbName = \"wizwiz\";
+\$botUrl = \"https://$domain/wizwizxui-timebot/\";
+\$admin = $chat_id;
+?>
+      ";
+      file_put_contents("wizwiz_timebot/baseInfo.php",$base_code);
+      $webhok = file_get_contents("https://api.telegram.org/bot$token/setWebhook?url=https://$domain/wizwizxui-timebot/bot.php");
+      echo $webhok;
+      file_get_contents("https://api.telegram.org/bot$token/sendmessage?chat_id=$chat_id&&text=\"✅ The wizwiz bot has been successfully installed! @wizwizch , @PhoenixPars\"");
+    $CreateDB = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/createDB.php");
+    file_put_contents("wizwiz_timebot/createDB.php",$CreateDB);
+    echo "<a href=\"https://$domain/wizwizxui-timebot/createDB.php\">install DB and end instaltion</a>";
+    } else {
     mkdir("wizwiz_timebot");
     mkdir("wizwiz".$random);
     $updateShareConfig = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/updateShareConfig.php");
@@ -60,6 +83,7 @@ if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
     file_put_contents("wizwiz_timebot/assets/style.css",$style_css);
     $webconf_css = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/webconf.css");
     file_put_contents("wizwiz_timebot/assets/webconf.css",$webconf_css);
+    echo "<form mathod=\"post\">enter your domain :<input type=\"text\" name=\"domain\"><br>enter your token : <input type=\"text\" name=\"token\"><br>enter your chat_id : <input type=\"number\" name=\"chat_id\"><br><input type=\"submit\" name=\"submit\"></form>";}
 } else {
     echo 'failed';
     echo 'pls reinstall';
