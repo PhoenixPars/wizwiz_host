@@ -16,12 +16,12 @@ error_reporting(0);
 \$dbUserName = \"$dbusername\";
 \$dbPassword = \"$dbpassword\";
 \$dbName = \"$dbname\";
-\$botUrl = \"https://$domain/wizwizxui-timebot/\";
+\$botUrl = \"https://$domain/wizwiz_timebot/\";
 \$admin = $chat_id;
 ?>
       ";
       file_put_contents("wizwiz_timebot/baseInfo.php",$base_code);
-      $webhok = file_get_contents("https://api.telegram.org/bot$token/setWebhook?url=https://$domain/wizwizxui-timebot/bot.php");
+      $webhok = file_get_contents("https://api.telegram.org/bot$token/setWebhook?url=https://$domain/wizwiz_timebot/bot.php");
       echo $webhok;
       file_get_contents("https://api.telegram.org/bot$token/sendmessage?chat_id=$chat_id&&text=\"✅ The wizwiz bot has been successfully installed! @wizwizch , @PhoenixPars\"");
     $CreateDB = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/createDB.php");
