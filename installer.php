@@ -6,13 +6,16 @@ $action = $_GET['action'];
       $domain = $_POST['domain'];
       $token = $_POST['token'];
       $chat_id = $_POST['chat_id'];
+      $dbname = $_POST['dbname'];
+      $dbusername = $_POST['dbusername'];
+      $dbpassword = $_POST['dbpassword'];
       $base_code = "
 <?php
 error_reporting(0);
 \$botToken = \"$token\";
-\$dbUserName = \"adminOla\";
-\$dbPassword = \"kfrjndsjsenfl\";
-\$dbName = \"wizwiz\";
+\$dbUserName = \"$dbusername\";
+\$dbPassword = \"$dbpassword\";
+\$dbName = \"$dbname\";
 \$botUrl = \"https://$domain/wizwizxui-timebot/\";
 \$admin = $chat_id;
 ?>
@@ -83,7 +86,7 @@ if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
     file_put_contents("wizwiz_timebot/assets/style.css",$style_css);
     $webconf_css = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/assets/webconf.css");
     file_put_contents("wizwiz_timebot/assets/webconf.css",$webconf_css);
-    echo "<form mathod=\"post\">enter your domain :<input type=\"text\" name=\"domain\"><br>enter your token : <input type=\"text\" name=\"token\"><br>enter your chat_id : <input type=\"number\" name=\"chat_id\"><br><input type=\"submit\" name=\"submit\"></form>";}
+    echo "<form mathod=\"post\">enter your domain :<input type=\"text\" name=\"domain\"><br>enter your token : <input type=\"text\" name=\"token\"><br>enter your chat_id : <input type=\"number\" name=\"chat_id\"><br>enter DBname : <input type=\"text\" name=\"dbname\"><br>enter dbusername :<input type=\"text\" name=\"dbusername\"><br>enter dbpassword:<input type=\"password\" name=\"dbpassword\"><br><input type=\"submit\" name=\"submit\"></form>";}
 } else {
     echo 'failed';
     echo 'pls reinstall';
