@@ -90,7 +90,7 @@ if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
  else {
     echo 'failed';
     echo 'pls reinstall';
-}
+}}
   } elseif ($action == "update") {
 
   } else {
