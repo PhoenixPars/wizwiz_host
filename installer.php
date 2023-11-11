@@ -92,13 +92,15 @@ if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
     echo 'pls reinstall';
 }}
   } elseif ($action == "update") {
-
+$bot_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/bot.php");
+file_put_contents("wizwiz_timebot/bot.php",$bot_php);
+    echo "Update success !";
   } else {
-echo "       welcome to wizwiz indtaller       ";
-echo "        my channel : @phoenixars         ";
-echo " --------------------------------------- ";
-echo " What do you want to do ?                ";
-echo " <a href=\"?action=install\">Install</a> ";
-echo " <a href=\"?action=update\">update</a>  ";
+echo "       welcome to wizwiz indtaller       <br>";
+echo "        my channel : @phoenixars         <br>";
+echo " --------------------------------------- <br>";
+echo " What do you want to do ?                <br>";
+echo " <a href=\"?action=install\">Install</a> <br>";
+echo " <a href=\"?action=update\">update</a>   <br>";
   }
     ?>
