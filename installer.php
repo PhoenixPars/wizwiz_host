@@ -94,6 +94,11 @@ if ($zip->open('wizwiz_timebot/phpqrcode.zip') === TRUE) {
   } elseif ($action == "update") {
 $bot_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/bot.php");
 file_put_contents("wizwiz_timebot/bot.php",$bot_php);
+$config_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/config.php");
+file_put_contents("wizwiz_timebot/config.php",$config_php);
+$createDB_php = file_get_contents("https://raw.githubusercontent.com/PhoenixPars/wizwizxui-timebot/main/createDB.php");
+file_put_contents("wizwiz_timebot/createDB.php",$createDB_php);
+include 'wizwiz_timebot/createDB.php';
     echo "Update success !";
   } else {
 echo "       welcome to wizwiz indtaller       <br>";
